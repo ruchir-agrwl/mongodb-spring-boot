@@ -1,5 +1,6 @@
 package com.learn.mongo;
 
+import com.learn.mongo.model.Address;
 import com.learn.mongo.model.Customer;
 import com.learn.mongo.repo.CustomerRepository;
 import lombok.extern.java.Log;
@@ -25,8 +26,8 @@ public class MongoMvpApplication implements CommandLineRunner {
 		//Deleting all the records before start executing
 		customerRepository.deleteAll();
 
-		customerRepository.save(new Customer("Scott","Dana"));
-		customerRepository.save(new Customer("Mike","Zane"));
+		customerRepository.save(new Customer("Scott","Dana", new Address("Baker","London","EU")));
+		customerRepository.save(new Customer("Mike","Zane", new Address("Downing","London","EU")));
 
 		//Fetch the records
 		for(Customer c: customerRepository.findAll()){
